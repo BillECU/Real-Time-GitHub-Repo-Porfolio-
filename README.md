@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Fetch Github user api to generate your own Repo porfolio. 
+Search and Fetch Github user api to generate a Repo porfolio. 
 
 ## Available Scripts
 
