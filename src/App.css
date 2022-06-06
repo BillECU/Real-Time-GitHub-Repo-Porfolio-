@@ -24,7 +24,7 @@
 .repo-container {
   width: 50%;
   height: 400px;
-  margin: 20px;
+  margin: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   overflow: scroll;
 }
