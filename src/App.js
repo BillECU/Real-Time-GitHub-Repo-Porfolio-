@@ -10,11 +10,11 @@ function App() {
     repos: null,
   });
   
-  const [userid, setUserid] = useState('BillECU');
+  const [userid, setUserid] = useState("BillECU");
   
   useEffect(() => {
     setAppState({ loading: true });
-    const apiUrl = (userid ==="")? `https://api.github.com/users/BillECU/repos`:`https://api.github.com/users/${userid}/repos`;
+    const apiUrl = `https://api.github.com/users/${userid}/repos`;
     
     fetch(apiUrl)
       .then((res) => res.json())
@@ -22,23 +22,37 @@ function App() {
         setAppState({ loading: false, repos: repos });
       });
   }, [userid]);
+  
+  const specialChars = /[` !@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/;
+  
+  function handleChange(e) {
+    
+    if(e.target.value ==="")
+      setUserid("BillECU")
+    else if (specialChars.test(e.target.value)){
+      alert('Enter invalid symbol\nPlease remove the symbol and re-enter')
+      setUserid("BillECU")
+    }
+    else
+      setUserid(e.target.value);
+  }
 
   return (
     <div className='App'>
       <form>
-        <input placeholder="GitHub id" onChange={e => setUserid(e.target.value)} />
+        <input placeholder="GitHub id" onChange={handleChange} />
         {/* <input type="submit" /> */}
       </form>
       
       <div className='container'>
-        <h1>My Repositories</h1>
+        <h1>{userid}'s Repositories</h1>
       </div>
       <div className='repo-container'>
         <ListLoading isLoading={appState.loading} repos={appState.repos} />
       </div>
       <footer>
         <div className='footer'>
-          Built by <a href="https://github.com/${userid}">{userid}</a>
+          Built by <a href="https://github.com/BillECU">BillECU</a>
         </div>
       </footer>
     </div>
