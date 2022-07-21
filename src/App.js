@@ -37,6 +37,11 @@ function App() {
       setUserid(e.target.value);
   }
 
+  //Exit message 
+  window.addEventListener('beforeunload', (event) => {
+    event.returnValue = 'Are you sure you want to leave?';
+  });
+
   return (
     <div className='App'>
       <form>
