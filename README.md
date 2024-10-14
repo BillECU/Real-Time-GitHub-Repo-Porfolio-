@@ -7,7 +7,7 @@ Search and Fetch Github user api to generate a Repo porfolio.
 ## Demo for Web and Mobile
 ![.](demo/demo1.png.jpeg)
 ![.](demo/demo2.png.jpeg)
-![mobile](demo/mobile.png)
+![mobile](demo/mobile2.png)
 
 ## Available Scripts
 w
